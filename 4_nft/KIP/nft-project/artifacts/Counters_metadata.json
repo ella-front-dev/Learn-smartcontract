@@ -1,0 +1,39 @@
+{
+	"compiler": {
+		"version": "0.5.6+commit.b259423e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"author": "Matt Condon (@shrugs)",
+			"details": "Provides counters that can only be incremented or decremented by one. This can be used e.g. to track the number of elements in a mapping, issuing ERC721 ids, or counting request ids. * Include with `using Counters for Counters.Counter;` Since it is not possible to overflow a 256 bit integer with increments of one, `increment` can skip the SafeMath overflow check, thereby saving gas. This does assume however correct usage, in that the underlying `_value` is never directly accessed.",
+			"methods": {},
+			"title": "Counters"
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"nft-project/MyNFTs.sol": "Counters"
+		},
+		"evmVersion": "constantinople",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"nft-project/MyNFTs.sol": {
+			"keccak256": "0x1151e57e62b43463bead82175b4b9f196aee60cfcb38383880577ea18637bdc4",
+			"urls": [
+				"bzzr://322e1cabb9535d9a3d71f804b83a5b8c384230af28513fe721dfac85190daa07"
+			]
+		}
+	},
+	"version": 1
+}

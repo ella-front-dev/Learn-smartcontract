@@ -1,0 +1,67 @@
+{
+	"compiler": {
+		"version": "0.5.6+commit.b259423e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"constant": true,
+				"inputs": [
+					{
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"payable": false,
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"payable": false,
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			}
+		],
+		"devdoc": {
+			"details": "Implementation of the `IKIP13` interface. * Contracts may inherit from this and call `_registerInterface` to declare their support of an interface.",
+			"methods": {
+				"supportsInterface(bytes4)": {
+					"details": "See `IKIP13.supportsInterface`.     * Time complexity O(1), guaranteed to always use less than 30 000 gas."
+				}
+			}
+		},
+		"userdoc": {
+			"methods": {}
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"nft-project/MyNFTs.sol": "KIP13"
+		},
+		"evmVersion": "constantinople",
+		"libraries": {},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"nft-project/MyNFTs.sol": {
+			"keccak256": "0x1151e57e62b43463bead82175b4b9f196aee60cfcb38383880577ea18637bdc4",
+			"urls": [
+				"bzzr://322e1cabb9535d9a3d71f804b83a5b8c384230af28513fe721dfac85190daa07"
+			]
+		}
+	},
+	"version": 1
+}
