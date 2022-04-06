@@ -25,8 +25,7 @@ router.post("/newWallet", async (req, res) => {
   // 요청에 포함되어 있는 password 와 mnemonic을 각 변수에 할당합니다.
   let password = req.body.password;
   let mnemonic = req.body.mnemonic;
-  console.log("password", password);
-  console.log("mnemonic", mnemonic);
+
   try {
     let options = {
       password: password,
@@ -38,14 +37,8 @@ router.post("/newWallet", async (req, res) => {
         data.generateNewAddress(pwDerivedKey, 1);
         let address = (data.getAddresses()).toString();
         let keystore = data.serialize();
-        console.log('address', address)
-        fs.writeFile('keystore.json', keystore, function(err){
-           if(!err){
-            res.status(200).json({ address: address, message: "성공"});
-           }else{
-            res.status(999).json({ message: "실패"});
-           }
-        })
+
+        res.json({ keystore: keystore, address: address });
       });
     });
 
@@ -63,5 +56,41 @@ router.post("/newWallet", async (req, res) => {
     // (오류) 에러를 응답합니다.
   }
 });
+
+// TODO : keystore를 로컬에 저장하는 코드
+router.post("/newWalletLocal", async (req, res) => {
+  let password = req.body.password;
+  let mnemonic = req.body.mnemonic;
+
+  try {
+    let options = {
+      password: password,
+      seedPhrase: mnemonic,
+      hdPathString: "m/0'/0'/0'",
+    };
+    lightwallet.keystore.createVault(options, function (err, data) {
+      data.keyFromPassword(password, function (err, pwDerivedKey) {
+        data.generateNewAddress(pwDerivedKey, 1);
+        let address = (data.getAddresses()).toString();
+        let keystore = data.serialize();
+        // 함수 keyFromPassword의 콜백 함수에서, 응답대신 fs.writeFile 사용
+        // 첫번째 인자에는 .json 형식의 파일이름을, 두번째 인자에는 keystore 을 입력
+        // 세번째 인자에는 응답에 대한 콜백 함수를 입력
+        // 로컬 서버에 파일을 저장하기 때문에, 응답으로는 성공 또는 실패 메세지만 전송
+        fs.writeFile('keystore.json', keystore, function(err){
+           if(!err){
+            res.status(200).json({ address: address, message: "성공"});
+           }else{
+            res.status(999).json({ message: "실패"});
+           }
+        })
+      });
+    });
+
+  } catch (error) {
+    console.log('newWallet : ',error);
+  }
+});
+
 
 module.exports = router;
