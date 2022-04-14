@@ -1,10 +1,14 @@
-# 2. 솔리디티
+# 2. Solidity
 ## contract practice
 - `solc_practice` 파일에 간단하게 샘플 코드 구현
 
 <br/>
 
-## Remix를 이용해서 로컬에서 컨트렉트 구현
+## Setting Environment
+1. Remix 사용
+2. Remix를 로컬과 연결해서 구현
+
+### Remix를 이용해서 로컬에서 컨트렉트 구현
 [Remixd](https://remix.ethereum.org) : 웹 브라우저에서 동작하는 IDE
 [Remix-project 공식 문서](https://github.com/ethereum/remix-project/tree/master/libs/remixd)
 
@@ -26,8 +30,14 @@ npm install -g @remix-project/remixd
 
 ```
 
+## 가위바위보 게임 구현
+1. 사용자와 게임 구조체 생성
+- 플레이어 구조체 만들기
+- 게임 구조체 만들기
 
-### Remix와 로컬 서버 연결
-1. `solidity_practice` 폴더 만들어서 `helloWorld.sol`파일 생성
+2. createRoom - 게임 생성
 
-### 가위바위보 게임 구현
+3. joinRoom - 방 참가
+- compareHands() - 게임 결과 업데이트
+
+4. payout - 베팅 금액 송금
