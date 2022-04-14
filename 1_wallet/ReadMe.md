@@ -20,7 +20,7 @@
 
 <br/>
 
-## 기능 개발
+## Develop Feature
 1. 랜덤한 니모닉 코드를 생성
 `keystore.generateRandomSeed()`를 이용하여 니모닉 코드를 생성
 
